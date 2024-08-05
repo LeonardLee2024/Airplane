@@ -1,7 +1,5 @@
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -84,7 +82,26 @@ public class test {
 	    }
 	    DijkstraA obj = new DijkstraA();
 	    
-	    List<String> ls = obj.dijkstra(flights, "A", "F");
+	    String A, F;
+	    while (true) {
+		    Scanner sc = new Scanner(System.in);
+		    System.out.print("Enter your departure location: ");
+		    A = sc.nextLine();
+		    System.out.print("Enter your destination: ");
+		    F = sc.nextLine();
+		    if (A.equals("A") || A.equals("B") || A.equals("C") || A.equals("D") || A.equals("E") || A.equals("F")) {
+		    	if (F.equals("A") || F.equals("B") || F.equals("C") || F.equals("D") || F.equals("E") || F.equals("F")) {
+			    	break;
+			    }
+		    }
+//		    Integer locations[] = {Integer.parseInt(A), Integer.parseInt(F)};
+//		    if (Integer.valueOf(Integer.toHexString(locations[0])) >= 41 && Integer.valueOf(Integer.toHexString(locations[0])) <= 46) {
+//		    	if (Integer.valueOf(Integer.toHexString(locations[1])) >= 41 && Integer.valueOf(Integer.toHexString(locations[1])) <= 46) {
+//		    		break;
+//		    	}
+//		    }
+	    }
+	    List<String> ls = obj.dijkstra(flights, A, F);
 	    
 	    for (String i : ls) {
 	    	System.out.println(i);
